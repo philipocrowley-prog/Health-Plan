@@ -1,0 +1,629 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --text: #17202a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --primary: #111827;
+  --success: #15803d;
+  --warning: #b45309;
+  --danger: #b91c1c;
+  --radius: 18px;
+}
+
+html {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Segoe UI",
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.screen {
+  min-height: 100vh;
+}
+
+#loginScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card);
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.app-logo {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.login-card h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+}
+
+.subtitle {
+  margin: 0 0 28px;
+  color: var(--muted);
+}
+
+.login-card label,
+.modal-content label,
+.bonus-area label {
+  display: block;
+  margin: 16px 0 7px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.login-card input,
+.modal-content input,
+.modal-content textarea,
+.modal-content select,
+.bonus-area input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 13px 14px;
+  background: #fff;
+  outline: none;
+}
+
+.login-card input:focus,
+.modal-content input:focus,
+.modal-content textarea:focus,
+.modal-content select:focus,
+.bonus-area input:focus {
+  border-color: #6b7280;
+}
+
+.primary-button,
+.secondary-button {
+  width: 100%;
+  border-radius: 12px;
+  padding: 13px 16px;
+  margin-top: 14px;
+  border: none;
+  font-weight: 700;
+}
+
+.primary-button {
+  background: var(--primary);
+  color: white;
+}
+
+.secondary-button {
+  background: #eef0f2;
+  color: var(--text);
+}
+
+.message {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px max(20px, calc((100vw - 1100px) / 2));
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.app-header h1 {
+  margin: 2px 0 0;
+  font-size: 26px;
+}
+
+.small-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.icon-button {
+  border: none;
+  background: #eef0f2;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 22px;
+}
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.container {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 100px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.section-heading span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================================================
+   STATUS CARDS
+========================================================= */
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.status-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  min-height: 150px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.card-icon {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.card-value {
+  font-size: 25px;
+  font-weight: 800;
+  margin-top: 6px;
+}
+
+.card-subvalue {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.action-button {
+  text-align: left;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 16px;
+  padding: 17px;
+  min-height: 115px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+.action-button span {
+  display: block;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.action-button strong {
+  display: block;
+  font-size: 14px;
+}
+
+.action-button small {
+  display: block;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* =========================================================
+   EXERCISE
+========================================================= */
+
+.exercise-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.check-row:last-of-type {
+  border-bottom: none;
+}
+
+.check-row input {
+  width: 23px;
+  height: 23px;
+  accent-color: var(--primary);
+}
+
+.check-row span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.check-row small {
+  color: var(--muted);
+}
+
+.bonus-area {
+  margin-top: 16px;
+}
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.summary-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.summary-card span {
+  font-size: 22px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.summary-card strong {
+  display: block;
+  font-size: 20px;
+}
+
+.summary-card small {
+  color: var(--muted);
+  display: block;
+  margin-top: 4px;
+}
+
+/* =========================================================
+   ALERT
+========================================================= */
+
+.alert {
+  border: 1px solid #f3c7c7;
+  background: #fff5f5;
+  color: var(--danger);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 30px;
+}
+
+.alert strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.alert p {
+  margin: 0;
+  color: #7f1d1d;
+}
+
+/* =========================================================
+   TRENDS
+========================================================= */
+
+.trend-placeholder {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 25px;
+  min-height: 150px;
+}
+
+.trend-placeholder p {
+  color: var(--muted);
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.modal-content {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 22px;
+  padding: 28px;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: #eef0f2;
+  font-size: 24px;
+}
+
+/* =========================================================
+   FORM ELEMENTS
+========================================================= */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-group {
+  margin-bottom: 4px;
+}
+
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-actions button {
+  flex: 1;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 90px;
+  transform: translateX(-50%);
+  z-index: 200;
+  background: #111827;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================================
+   BOTTOM NAV
+========================================================= */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border);
+}
+
+.nav-button {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  min-width: 90px;
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+
+.nav-button.active {
+  background: #eef0f2;
+  color: var(--text);
+}
+
+.nav-button span {
+  display: block;
+  font-size: 19px;
+}
+
+.nav-button small {
+  display: block;
+  margin-top: 2px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+  .status-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .action-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 20px, 1100px);
+    padding-top: 18px;
+  }
+
+  .app-header {
+    padding: 14px 15px;
+  }
+
+  .app-header h1 {
+    font-size: 23px;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+
+  .status-card {
+    padding: 15px;
+    min-height: 135px;
+  }
+
+  .card-value {
+    font-size: 21px;
+  }
+
+  .action-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+
+  .action-button {
+    min-height: 105px;
+    padding: 14px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full {
+    grid-column: auto;
+  }
+
+  .modal-content {
+    padding: 22px;
+  }
+
+  .login-card {
+    padding: 28px 22px;
+  }
+
+  .bottom-nav {
+    justify-content: space-around;
+  }
+
+  .nav-button {
+    min-width: 0;
+    flex: 1;
+  }
+}
